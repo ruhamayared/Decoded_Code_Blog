@@ -66,3 +66,37 @@ loop {
             }
 ```
 <p>By using <code>tasks.iter().collect()</code> to create a <code>Vec</code> of references to the tasks, we avoid cloning the data. Then, we use <code>sort_by_key()</code> to sort the <code>Vec</code> based on the task IDs. Finally, we iterate through the sorted <code>Vec</code> to print the tasks in order.</p><p><br />
+
+<b>Completing a Task:</b><br />When the user selects "3", we prompt them to enter the task ID to mark it as completed and remove it from the list.<br /></p>
+```rust
+            Ok(3) =&gt; {
+                let mut task_id = String::new();
+                print!("Enter the task ID: ");
+                stdout().flush().unwrap();
+                stdin().read_line(&amp;mut task_id).unwrap();
+
+                match task_id.trim().parse::<u32>() {
+                    Ok(id) =&gt; {
+                        if tasks.remove(&amp;id).is_some() {
+                            println!("Task {} completed.", id);
+                        } else {
+                            println!("Task not found.");
+                        }
+                    }
+                    Err(_) =&gt; println!("Invalid task ID."),
+                }
+            }
+```
+We read the task ID, try to parse it as a <code>u32</code>, and attempt to remove the task from the <code>tasks HashMap</code>. If the task is successfully removed, we display a confirmation message. If the task is not found or the input is invalid, we display an error message.<p></p>
+
+<div><br /><b>Quitting the App:</b></div><div>When the user selects "4", we exit the loop and end the program.</div><div><pre><code>            Ok(4) =&gt; {
+                println!("Goodbye!");
+                break;
+            }
+</code></pre></div><div>We print a farewell message and use <code>break</code> to exit the loop, which will terminate the app.</div><div><br /></div><div><br /></div><div><b>Handling Invalid Input:</b></div><div>For any other input, we display an error message.</div><div><pre><code>            _ =&gt; {
+                println!("Invalid choice.");
+            }
+        }
+    }
+}
+</code></pre></div><div>If the user enters an invalid choice, we display an error message and continue with the next iteration of the loop, prompting the user for another input.</div><div><br /></div><div><br /></div><div><b>Running the To-Do App:</b></div><div>To run your To-Do app, navigate to the project folder in your terminal and enter:</div><div><pre><code>cargo run</code></pre></div><div>That's it! You now have a simple command-line To-Do app in Rust. Enjoy using and modifying it to suit your needs. In the process, you'll learn more about Rust and its features. Happy coding!</div>
