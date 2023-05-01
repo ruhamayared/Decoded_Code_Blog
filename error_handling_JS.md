@@ -19,7 +19,7 @@ console.log(safeDivide(10, 0)); // Log the error message "An error occurred: Div
 
 <p>
 
-In this example, we use a "try...catch" block to handle potential errors. If the denominator (b) is zero, we throw a custom error with a helpful message. If an error is caught, we log the error message and return null, indicating that the division could not be performed.<div><br /><br /></div>
+In this example, we use a "try...catch" block to handle potential errors. If the denominator (b) is zero, we throw a custom error with a helpful message. If an error is caught, we log the error message and return null, indicating that the division could not be performed.<div><br /></div>
 
 <div><b>Conclusion</b></div><div>Error handling is a critical aspect of software development that ensures your application remains stable and provides a good user experience. By understanding the basics of error handling in JavaScript and knowing when to implement it, you'll be well-equipped to tackle any challenges that may arise in your coding journey. Happy coding!</div>
 
